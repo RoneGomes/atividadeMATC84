@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+
+
+    <style>
+        .tela {
+            margin-top: 5%;
+            margin-left: 30%;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+
+            width: 500px;
+            height: 500px;
+            background-color: gray;
+        }
+
+        .title {
+            margin-top: 30px;
+            margin-left: 25%;
+
+        }
+
+        .result {
+            font-size: 20px;
+            margin-left: 40%;
+        }
+
+        #result {
+
+            margin-left: 35%;
+            height: 20px;
+            width: 120px;
+
+        }
+
+        .label {
+            font-size: 20px;
+            margin-left: 5%;
+        }
+
+        input {
+            height: 20px;
+            width: 120px;
+        }
+
+        button {
+            margin-left: 35%;
+            height: 50px;
+            width: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tela"><br><br><br>
+        <h2 class="title">CÁLCULO DE IMC</h2><br>
+        <label class="label">Nome:</label>
+        <input type="text" style="width:318px ;"><br><br>
+
+        <label class="label">peso :</label>
+        <input type="text" id="weight">
+        <label class="label">altura :</label>
+        <input type="text" id="height"><br><br><br>
+        <button onclick="calculateImc()">calcular IMC</button><br><br>
+
+        <label class="result">resultado</label><br>
+        <input type="text" id="result"><br>
+        <h4 id="information" style="margin-left:28% ;">....................................................</h4>
+
+
+
+
+    </div>
+    <script>
+        function calculateImc() {
+            let a = Number(document.getElementById("weight").value)
+            let b = Number(document.getElementById("height").value)
+            let result = a / (b * b)
+
+            document.getElementById("result").value = result.toFixed(2)
+
+            if (result < 18.5) {
+
+                document.getElementById("information").innerHTML = "você está com IMC baixo peso"
+            }
+            if (result > 18.5 && result < 24.9) {
+
+                document.getElementById("information").innerHTML = "você está com IMC normal"
+            }
+            if (result > 25 && result < 29.9) {
+                
+                document.getElementById("information").innerHTML = "você está com IMC de pré-obeso"
+            }
+            if (result > 30 && result < 34.9) {
+                
+                document.getElementById("information").innerHTML = "você está com IMC de obeso"
+            }
+            if (result > 35 && result < 39.9) {
+                
+                document.getElementById("information").innerHTML = "você está com IMC de obesidade grave"
+            }
+            if (result >= 40) {
+               
+                document.getElementById("information").innerHTML = "você está com IMC de obesidade muito grave"
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
